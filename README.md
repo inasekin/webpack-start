@@ -1,3 +1,1 @@
-# Проект ISH
-
-## Смотри файл Contributing.md и Workflow.md
+# Стартовая сборка для верстки сайтов с помощью webpack
