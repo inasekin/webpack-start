@@ -1,0 +1,23 @@
+.breadcrumbs{
+    margin-bottom: 80px;
+  
+    &__list{
+      display: flex;
+      align-content: center;
+    }
+  
+    &__item{
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 140%;
+    }
+  
+    &__item:not(:last-child){
+      margin-right: 5px;
+    }
+  
+    &__link::after{
+      display: inline-block;
+      content: ' /';
+    }
+}

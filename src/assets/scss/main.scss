@@ -1,0 +1,156 @@
+@use "sass:math";
+
+//fonts in base
+@import "base/fonts";
+
+//utils
+@import "base/null";
+@import "base/mixins";
+@import "base/variables";
+
+// Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Montserrat", sans-serif;
+$fontSize: rem(16); // где 16(px) - размер шрифта по умолчанию из макета
+
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileMedium: em(600); // Телефоны M
+$mobileSmall: em(479.98); // Телефоны S
+
+//base
+//utils
+@import "utils/utils";
+@import "utils/common";
+@import "utils/animations";
+
+body {
+  font-family: $fontFamily;
+  color: $black;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+
+  @media (max-width: $tablet) {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  // Скролл заблокирован
+  .lock {
+    overflow: hidden;
+    touch-action: none;
+  }
+  // Сайт загружен
+  .loaded & {
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+// Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  // Прижимаем footer
+  > main {
+    flex: 1 1 auto;
+  }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
+}
+
+// Ограничивающий контейнер ======================================================================================================================================================================================================================
+
+/*
+(i) Стили будут применяться ко
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+//@if ($responsiveType==1) {
+//  // Отзывчивая
+//  [class*="__container"] {
+//    @if ($maxWidthContainer>0) {
+//      max-width: rem($maxWidthContainer);
+//      box-sizing: content-box;
+//      margin: 0 auto;
+//    }
+//    @if ($containerPadding>0) {
+//      padding: 0 rem(math.div($containerPadding, 2));
+//    }
+//  }
+//} @else {
+//  // По брейк-поинтам
+//  [class*="__container"] {
+//    margin: 0 auto;
+//    @if ($maxWidthContainer>0) {
+//      max-width: rem($maxWidthContainer);
+//      box-sizing: content-box;
+//    } @else {
+//      @if ($containerPadding>0) {
+//        padding: 0 rem(math.div($containerPadding, 2));
+//      }
+//    }
+//    @media (max-width: $pc) {
+//      max-width: rem(970);
+//    }
+//    @media (max-width: $tablet) {
+//      max-width: rem(750);
+//    }
+//    @media (max-width: $mobile) {
+//      max-width: none;
+//      @if ($containerPadding>0 and $maxWidthContainer>0) {
+//        padding: 0 rem($containerPadding);
+//      }
+//    }
+//  }
+//}
+
+.container,
+[class*='__container']{
+  margin:0 auto;
+  max-width: 1296px;
+  @media (max-width: 1368px){
+    max-width: 100%;
+    padding:0 36px;
+  }
+  @media (max-width: 767.98px){
+    max-width: 696px;
+    padding:0;
+  }
+  @media (max-width: 716px){
+    max-width: 100%;
+    padding:0 10px;
+  }
+}
+
+main{
+  margin-top: 111px;
+  @media (max-width: 1296px){
+    margin-top: 78px;
+  }
+  @media (max-width: $mobile){
+    margin-top: 70px;
+  }
+}
+
+//components
+@import "components/btns";
+@import "components/menu-burger";
+@import "components/breadcrumbs";
+
+//layout
+@import "layout/header";
+@import "layout/footer";
+//pages
+
+//themes
+
+//vendors
+@import "vendors/swiper";

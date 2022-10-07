@@ -1,0 +1,42 @@
+//анимация первого фона
+@keyframes scroll {
+  from {
+    background-position: center center;
+  }
+  to {
+    background-position: 30% 0;
+  }
+}
+
+@keyframes scroll-article {
+  from {
+    background-position-y: -180px;
+  }
+  to {
+    background-position-y: -30px;
+  }
+}
+
+@keyframes do-levitation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0.5em);
+  }
+}
+
+@keyframes rotate-img {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    top:-100%;
+  }
+  100% {
+    top:0;
+  }
+}

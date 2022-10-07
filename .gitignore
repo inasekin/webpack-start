@@ -1,0 +1,30 @@
+# Файлы и папки операционной системы
+.DS_Store
+Thumbs.db
+
+# Файлы редакторов
+.idea
+*.sublime*
+.vscode
+
+# Вспомогательные файлы
+*.log*
+node_modules/
+yarn.lock
+package-lock.json
+
+# Собранные файлы
+/dist
+
+# Прочее
+.tmp
+dist/
+.sass-cache
+*.iml
+.project
+.elasticbeanstalk/
+
+# Тесты
+cypress/videos/
+cypress/screenshots/
+.vercel

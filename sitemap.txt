@@ -1,0 +1,13 @@
+/
+/about/
+/applicant/
+/contacts/
+/editing/
+/employer/
+/employer-vacancies/
+/login/
+/profile/
+/response/
+/resume/
+/ui/
+/verify/

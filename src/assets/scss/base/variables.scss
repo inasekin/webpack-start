@@ -1,0 +1,37 @@
+// Основные цвета
+$black: #000000;
+$white: #ffffff;
+$turWhite: #F9F9F9;
+$mouseGrey: #88929B;
+$darkGrey: #696969;
+$semiGrey: #C8C8C8;
+$lightGrey: #E9EAEB;
+$purple: #651764;
+$green: #6B9F6F;
+$red: #A82B2B;
+$pink: #651764;
+$lightYellow: #F4E9DA;
+
+// Минимальная ширина страницы
+$minWidth: 320;
+
+// Ширина полотна (макета)
+$maxWidth: 1920;
+
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1296;
+
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 2;
+
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+//Прочее
+$transitionHover: all 0.3s;

@@ -1,0 +1,151 @@
+.btn {
+  display: inline-block;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  min-width: 200px;
+  padding: 14px;
+  width: max-content;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+
+  //white-button
+  &--white {
+    background: $white;
+    color: $purple;
+    border-width: 2px;
+    transition: $transitionHover;
+    &:hover {
+      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.62) 100%);
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.1);
+      color: $white;
+      border-width: 2px;
+
+      transition: $transitionHover;
+      svg path{
+        fill:$white;
+        transition: $transitionHover;
+      }
+    }
+    &:active{
+      background: $black;
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.1);
+      transition: $transitionHover;
+      svg path{
+        fill:$black;
+        transition: $transitionHover;
+      }
+    }
+  }
+
+  //button with white borders
+  &--white-borders {
+    background: transparent;
+    color: $white;
+    border: 2px solid #FFFFFF;
+  }
+
+  &--purple {
+    background: linear-gradient(180deg, $purple 0%, $purple 100%);
+    color: $white;
+    border: 2px solid $purple;
+    transition: $transitionHover;
+    svg path{
+      fill:$purple;
+    }
+    &:hover{
+      transition: $transitionHover;
+      background: linear-gradient(180deg, #651764 0%, #772176 100%);
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.1);
+    }
+    &:active{
+      background: linear-gradient(180deg, $purple 0%, $purple 100%);
+      transition: $transitionHover;
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  //button with purple borders
+  &--purple-borders {
+    border: 2px solid #651764;
+    background: transparent;
+    color: $purple;
+    svg path{
+      fill:$purple;
+    }
+    &:hover {
+      color: $white;
+      transition: $transitionHover;
+      background: $purple;
+      svg path{
+        fill:$white;
+        transition: $transitionHover;
+      }
+    }
+    &:active{
+      background: #7E1E7D;
+    }
+  }
+
+  &--with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  &__icon {
+    display: block;
+    max-height: 20px;
+  }
+
+  &--small{
+    min-width: 160px;
+    padding: 8px 14px 8px;
+  }
+}
+
+//like
+.like-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 50px;
+  border: 2px solid #651764;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    svg path {
+      fill: $purple;
+      transition: $transitionHover;
+    }
+  }
+
+  &.like-btn--active {
+    svg path {
+      fill: $purple;
+    }
+  }
+
+  //likebtn withou border
+  &--small{
+    border: none;
+    width: 24px;
+    height: 22px;
+  }
+}
+
+.btn-underline{
+  font-size: 16px;
+  line-height: 28px;
+  text-decoration-line: underline;
+  color:$black;
+  transition: $transitionHover;
+  &:hover{
+    color:$purple;
+  }
+}
+
