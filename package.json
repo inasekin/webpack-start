@@ -32,7 +32,7 @@
     "css-minimizer-webpack-plugin": "^4.2.0",
     "cz-customizable": "^5.3.0",
     "eslint": "^8.24.0",
-    "eslint-config-htmlacademy": "^4.1.0",
+    "eslint-config-htmlacademy": "^8.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
