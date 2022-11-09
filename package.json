@@ -11,20 +11,21 @@
   "dependencies": {
     "bash": "^0.0.1",
     "inputmask": "^5.0.7",
-    "lodash": "^4.17.21",
-    "normalize.css": "^8.0.1"
+    "lodash": "^4.17.21"
   },
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "eslint ./src",
-    "please": "rm -rf node_modules package-lock.json dist"
+    "please": "rm -rf node_modules package-lock.json dist",
+    "rebuild": "rm -rf dist && npm run build"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.7",
     "@babel/preset-env": "^7.16.11",
     "@commitlint/cli": "^7.2.1",
+    "autoprefixer": "^10.4.13",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.7.1",
@@ -40,6 +41,7 @@
     "http-server": "^14.1.0",
     "husky": "^1.1.4",
     "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^7.0.1",
     "pre-commit": "^1.2.2",
     "prettier": "2.7.1",
     "resolve-url-loader": "^5.0.0",
@@ -69,5 +71,13 @@
     "cz-customizable": {
       "config": "commitizen.js"
     }
-  }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "last 4 version"
+  ]
 }
