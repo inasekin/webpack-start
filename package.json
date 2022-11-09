@@ -39,7 +39,7 @@
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
-    "husky": "^1.1.4",
+    "husky": "^8.0.2",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^7.0.1",
     "pre-commit": "^1.2.2",
