@@ -1,5 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const BASE_DIR = 'assets/';
 
@@ -10,10 +12,10 @@ module.exports = {
     contacts: './src/pages/contacts/main.js',
   },
   output: {
-    filename: `${BASE_DIR  }js/[name].js`,
+    filename: `${BASE_DIR}js/[name].js`,
     path: path.resolve(__dirname, 'dist'),
     // assetModuleFilename: "assets/",
-    clean: true,
+    clean: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -35,7 +37,7 @@ module.exports = {
       filename: 'contacts.html',
     }),
     new MiniCssExtractPlugin({
-      filename: `${BASE_DIR  }css/[name].css`,
+      filename: `${BASE_DIR}css/[name].css`,
     }),
   ],
   module: {
@@ -53,8 +55,9 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
+        // loader: 'file-loader',
         generator: {
-          filename: `${BASE_DIR  }img/[name][ext][query]`,
+          filename: `${BASE_DIR}img/[name][ext][query]`,
         },
       },
       {
