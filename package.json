@@ -17,7 +17,7 @@
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "eslint ./src",
-    "please": "rm -rf node_modules package-lock.json dist",
+    "please": "rm -rf node_modules package-lock.json dist && npm i",
     "rebuild": "rm -rf dist && npm run build"
   },
   "devDependencies": {
