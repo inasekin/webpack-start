@@ -50,7 +50,7 @@
     "sass-loader": "^12.6.0",
     "standard": "^17.0.0",
     "style-loader": "^3.3.1",
-    "swiper": "^8.4.2",
+    "swiper": "^9.0.0",
     "terser-webpack-plugin": "^5.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.72.0",
