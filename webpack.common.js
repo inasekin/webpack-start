@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
@@ -7,15 +8,15 @@ const BASE_DIR = 'assets/';
 
 module.exports = {
   entry: {
-    index: './src/pages/index/main.js',
-    about: './src/pages/about/main.js',
-    contacts: './src/pages/contacts/main.js',
+    index: path.resolve(__dirname, 'src/pages/index', 'main.js'),
+    about: path.resolve(__dirname, 'src/pages/about', 'main.js'),
+    contacts: path.resolve(__dirname, 'src/pages/contacts', 'main.js'),
   },
   output: {
-    filename: `${BASE_DIR}js/[name].js`,
+    filename: `${BASE_DIR}js/[name].[contenthash].js`,
     path: path.resolve(__dirname, 'dist'),
     // assetModuleFilename: "assets/",
-    clean: false,
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -39,6 +40,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `${BASE_DIR}css/[name].css`,
     }),
+    new webpack.ProgressPlugin(),
   ],
   module: {
     rules: [
