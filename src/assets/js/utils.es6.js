@@ -4,6 +4,7 @@ const slideUp = (target, duration = 500, callback) => {
   target.style.transitionDuration = `${duration}ms`;
   target.style.boxSizing = 'border-box';
   target.style.height = `${target.offsetHeight}px`;
+  // eslint-disable-next-line no-unused-expressions
   target.offsetHeight;
   target.style.overflow = 'hidden';
   target.style.height = 0;
@@ -40,6 +41,7 @@ const slideDown = (target, duration = 500, callback) => {
   target.style.paddingBottom = 0;
   target.style.marginTop = 0;
   target.style.marginBottom = 0;
+  // eslint-disable-next-line no-unused-expressions
   target.offsetHeight;
   target.style.boxSizing = 'border-box';
   target.style.transitionProperty = 'height, margin, padding';
