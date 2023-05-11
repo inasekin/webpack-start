@@ -5,8 +5,17 @@
     "type": "git",
     "url": "https://github.com/inasekin/webpack-start"
   },
+  "keywords": [
+    "webpack",
+    "startkit",
+    "webpack-start",
+    "webdev"
+  ],
   "author": "nasekinid",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbkd/webpack-starter/issues"
+  },
   "homepage": "https://github.com/inasekin/webpack-start",
   "dependencies": {
     "bash": "^0.0.1",
@@ -60,7 +69,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "pre-commit": [
-    "test"
+    "lint"
   ],
   "husky": {
     "hooks": {
