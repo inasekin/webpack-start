@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const webpack = require('webpack');
 
 // const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -9,8 +10,8 @@ const BASE_DIR = 'assets/';
 module.exports = {
   entry: {
     index: path.resolve(__dirname, 'src/pages/index', 'main.js'),
-    about: path.resolve(__dirname, 'src/pages/about', 'main.js'),
     contacts: path.resolve(__dirname, 'src/pages/contacts', 'main.js'),
+    ui: path.resolve(__dirname, 'src/pages/ui', 'main.js'),
   },
   output: {
     filename: `${BASE_DIR}js/[name].[contenthash].js`,
@@ -26,26 +27,27 @@ module.exports = {
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/pages/about/tmpl.html',
-      inject: true,
-      chunks: ['about'],
-      filename: 'about.html',
-    }),
-    new HtmlWebpackPlugin({
       template: './src/pages/contacts/tmpl.html',
       inject: true,
       chunks: ['contacts'],
       filename: 'contacts.html',
     }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/ui/tmpl.html',
+      inject: true,
+      chunks: ['ui'],
+      filename: 'ui.html',
+    }),
     new MiniCssExtractPlugin({
       filename: `${BASE_DIR}css/[name].css`,
     }),
     new webpack.ProgressPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'resolve-url-loader',
           {
             loader: 'sass-loader',
@@ -55,10 +57,20 @@ module.exports = {
           }],
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: `${BASE_DIR}img/[name].[contenthash].[ext]`,
+          filename: `${BASE_DIR}img/[name][ext]`,
         },
       },
       {
@@ -66,6 +78,13 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: `${BASE_DIR}fonts/[name][ext][query]`
+        },
+      },
+      {
+        test: /\.(mov|mp4)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: `${BASE_DIR}videos/[name][ext]`
         },
       },
       {

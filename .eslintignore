@@ -3,3 +3,4 @@ webpack.dev.js
 webpack.prod.js
 commitizen.js
 commitlint.js
+/dist
