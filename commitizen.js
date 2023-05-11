@@ -77,5 +77,5 @@ module.exports = {
   footerPrefix: "МЕТА ДАННЫЕ:",
 
   // limit subject length
-  subjectLimit: 72
+  subjectLimit: 102
 };

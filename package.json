@@ -5,8 +5,17 @@
     "type": "git",
     "url": "https://github.com/inasekin/webpack-start"
   },
+  "keywords": [
+    "webpack",
+    "startkit",
+    "webpack-start",
+    "webdev"
+  ],
   "author": "nasekinid",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wbkd/webpack-starter/issues"
+  },
   "homepage": "https://github.com/inasekin/webpack-start",
   "dependencies": {
     "bash": "^0.0.1",
@@ -14,9 +23,10 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "test": "eslint ./src",
+    "start": "webpack serve --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js --env mode=production",
+    "build:dev": "webpack --config webpack.prod.js --env mode=development",
+    "lint": "eslint ./src",
     "please": "rm -rf node_modules package-lock.json dist && npm i",
     "rebuild": "rm -rf dist && npm run build"
   },
@@ -27,38 +37,39 @@
     "@commitlint/cli": "^17.4.2",
     "autoprefixer": "^10.4.13",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^9.1.2",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^5.0.0",
-    "cz-customizable": "^5.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.24.0",
     "eslint-config-htmlacademy": "^8.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
-    "html-loader": "^3.1.0",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
     "husky": "^8.0.3",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^7.0.1",
     "pre-commit": "^1.2.2",
-    "prettier": "2.8.3",
+    "prettier": "2.8.8",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.50.1",
-    "sass-loader": "^12.6.0",
+    "sass-loader": "^13.2.2",
     "standard": "^17.0.0",
     "style-loader": "^3.3.1",
     "swiper": "^9.0.0",
     "terser-webpack-plugin": "^5.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.8.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
   },
   "pre-commit": [
-    "test"
+    "lint"
   ],
   "husky": {
     "hooks": {
