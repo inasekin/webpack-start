@@ -57,7 +57,7 @@
     "prettier": "2.8.8",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.50.1",
-    "sass-loader": "^12.6.0",
+    "sass-loader": "^13.2.2",
     "standard": "^17.0.0",
     "style-loader": "^3.3.1",
     "swiper": "^9.0.0",
