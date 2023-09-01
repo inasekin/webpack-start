@@ -44,7 +44,7 @@
     "cz-customizable": "^7.0.0",
     "eslint": "^8.24.0",
     "eslint-config-htmlacademy": "^9.0.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
