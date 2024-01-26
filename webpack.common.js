@@ -1,11 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const webpack = require('webpack');
-
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const BASE_DIR = 'assets/';
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+
+const LoggerPlugin = {
+  apply: (compiler) => {
+    compiler.hooks.done.tap('LoggerPlugin', (stats) => {
+      console.log(stats.toString({ all: false, errors: true, warnings: true, colors: true }));
+    });
+  }
+};
+
 
 module.exports = {
   entry: {
@@ -16,7 +23,6 @@ module.exports = {
   output: {
     filename: `${BASE_DIR}js/[name].[contenthash].js`,
     path: path.resolve(__dirname, 'dist'),
-    // assetModuleFilename: "assets/",
     clean: true,
   },
   plugins: [
@@ -41,8 +47,9 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `${BASE_DIR}css/[name].css`,
     }),
+    new SpriteLoaderPlugin({ plainSprite: true }),
     new webpack.ProgressPlugin(),
-    // new BundleAnalyzerPlugin(),
+    LoggerPlugin,
   ],
   module: {
     rules: [
@@ -67,7 +74,19 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              publicPath: 'assets/img/',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
           filename: `${BASE_DIR}img/[name][ext]`,
@@ -98,12 +117,11 @@ module.exports = {
     ],
   },
   optimization: {
-    // moduleIds: "deterministic", //prevent vendors hash from change
-    runtimeChunk: 'single', //split common files code
+    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
         vendor: {
-          test: /[\\/]node_modules[\\/]/, //spit vendors to separete files
+          test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
         },

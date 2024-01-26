@@ -1,6 +1,8 @@
 require('../../assets/scss/main.scss');
 require('./page.scss');
 import Swiper, { Navigation, Pagination } from 'swiper';
+import '../../assets/img/test.svg';
+import '../../assets/img/test2.svg';
 
 Swiper.use([Navigation, Pagination]);
 
